@@ -55,7 +55,7 @@ class GameScene extends Scene {
         });
         this.time.addEvent({
             delay: 160,
-            callback: () => this.addDickBetween(151, 250),
+            callback: () => this.addDickBetween(150, 100000000000),
             callbackScope: this,
             loop: true,
         });
