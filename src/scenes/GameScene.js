@@ -1,6 +1,6 @@
 import {Scene} from 'phaser';
-import Seal from '../sprites/Seal';
-import Fish from '../sprites/Fish';
+import Jacob from '../sprites/Jacob';
+import Dick from '../sprites/Dick';
 
 const MISS_LIMIT = 3;
 const MISS = 'X';
@@ -18,7 +18,6 @@ class GameScene extends Scene {
         this.height = this.sys.game.config.height;
 
         this.add.image(this.width / 2, this.height / 2, 'water').setScale(10, 2);
-        this.add.image(this.width / 2, 'derp-cloud');
         this.platforms = this.physics.add.staticGroup();
         this.platforms
             .create(0, this.height, 'ground')
@@ -33,30 +32,30 @@ class GameScene extends Scene {
         });
 
         this.x = this.width / 2;
-        this.seal = new Seal({
+        this.jacob = new Jacob({
             scene: this,
-            key: 'seal',
+            key: 'jacob',
             x: this.x,
             y: this.height,
         });
 
-        this.fishies = this.add.group();
+        this.dicks = this.add.group();
 
         this.time.addEvent({
             delay: 400,
-            callback: () => this.addFishBetween(0, 20),
+            callback: () => this.addDickBetween(0, 20),
             callbackScope: this,
             loop: true,
         });
         this.time.addEvent({
             delay: 200,
-            callback: () => this.addFishBetween(20, 150),
+            callback: () => this.addDickBetween(20, 150),
             callbackScope: this,
             loop: true,
         });
         this.time.addEvent({
             delay: 160,
-            callback: () => this.addFishBetween(151, 250),
+            callback: () => this.addDickBetween(151, 250),
             callbackScope: this,
             loop: true,
         });
@@ -78,8 +77,8 @@ class GameScene extends Scene {
     }
 
     update() {
-        this.seal.update(this.x);
-        this.fishies.children.entries.forEach((element) => {
+        this.jacob.update(this.x);
+        this.dicks.children.entries.forEach((element) => {
             element.update();
         });
         if (this.numMissed > MISS_LIMIT) {
@@ -93,19 +92,19 @@ class GameScene extends Scene {
         return Math.floor(Math.random() * range) + pad;
     }
 
-    addFish() {
-        this.fishies.add(
-            new Fish({
+    addDick() {
+        this.dicks.add(
+            new Dick({
                 scene: this,
-                key: 'fish',
+                key: 'dick',
                 x: this.enemySpawnXValue(),
                 y: -this.height / 4,
             })
         );
     }
-    addFishBetween(min, max) {
+    addDickBetween(min, max) {
         if (this.score >= min && this.score <= max) {
-            this.addFish();
+            this.addDick();
         }
     }
     incrementScore() {

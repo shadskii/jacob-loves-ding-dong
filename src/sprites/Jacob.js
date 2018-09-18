@@ -3,7 +3,7 @@ import Phaser from 'phaser';
 /**
  * A hungry yet lovable loaf
  */
-export default class Seal extends Phaser.GameObjects.Sprite {
+export default class Jacob extends Phaser.GameObjects.Sprite {
     constructor(config) {
         super(config.scene, config.x, config.y, config.key);
         config.scene.physics.world.enable(this);

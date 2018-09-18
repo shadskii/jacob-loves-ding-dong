@@ -31,9 +31,9 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(['dist']),
-        new CopyWebpackPlugin([{ from: 'assets' }]),
+        new CopyWebpackPlugin([{from: 'assets'}]),
         new HtmlWebpackPlugin({
-            title: 'Hungry Seal',
+            title: 'Jacob Loves Ding Dongs',
             template: 'src/index.html',
         }),
         new webpack.ProvidePlugin({
@@ -45,7 +45,7 @@ module.exports = {
             {
                 test: /\.js$/,
                 exclude: /(node_modules|bower_components)/,
-                use: { loader: 'babel-loader' },
+                use: {loader: 'babel-loader'},
             },
         ],
     },

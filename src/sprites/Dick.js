@@ -8,13 +8,13 @@ export default class extends GameObjects.Sprite {
         super(config.scene, config.x, config.y, config.key);
         config.scene.physics.world.enable(this);
         config.scene.add.existing(this);
-        this.seal = this.scene.seal;
-        this.scene.physics.add.collider(this, this.seal, this.getEaten, this.getEaten, this);
+        this.jacob = this.scene.jacob;
+        this.scene.physics.add.collider(this, this.jacob, this.getEaten, this.getEaten, this);
         this.body.velocity.y = 50;
         this.angle = -90;
         this.body.acceleration.y = 9.8;
         this.body.setAllowGravity(true);
-        this.setScale(0.15, 0.15);
+        this.setScale(0.12, 0.15);
         this.eaten = false;
     }
 
@@ -25,15 +25,15 @@ export default class extends GameObjects.Sprite {
     update() {
         if (this.eaten) {
             this.scene.incrementScore();
-            this.destoryFish();
+            this.destroyDick();
         } else if (this.y > this.scene.height * 1.2) {
             this.scene.incrementMiss();
-            this.destoryFish();
+            this.destroyDick();
         }
     }
 
-    destoryFish() {
-        this.scene.fishies.remove(this);
+    destroyDick() {
+        this.scene.dicks.remove(this);
         this.destroy();
     }
 }

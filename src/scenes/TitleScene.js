@@ -1,6 +1,6 @@
-import { Scene, Display, SPACE } from 'phaser';
-import { calculateSize } from '../game';
-import Seal from '../sprites/Seal';
+import {Scene, Display, SPACE} from 'phaser';
+import {calculateSize} from '../game';
+import Jacob from '../sprites/Jacob';
 
 /**
  * The title scene is presented to the user first and gives them
@@ -8,10 +8,10 @@ import Seal from '../sprites/Seal';
  */
 class TitleScene extends Scene {
     constructor(test) {
-        super({ key: 'TitleScene' });
+        super({key: 'TitleScene'});
     }
     create() {
-        const { width, height } = calculateSize();
+        const {width, height} = calculateSize();
         this.scene.bringToTop();
         this.add.image(width / 2, height / 2, 'water').setScale(10, 2);
         this.platforms = this.physics.add.staticGroup();
@@ -20,11 +20,11 @@ class TitleScene extends Scene {
             .setScale(10, 0.5)
             .refreshBody();
 
-        this.title = this.add.text(width / 10, height / 10, 'Hungry Seals', {
-            fontSize: width / 12 + 'px',
+        this.title = this.add.text(width / 10, height / 10, 'Jacob Loves \n Ding Dongs', {
+            fontSize: width / 10 + 'px',
             fill: '#fff',
         });
-        this.subtitle = this.add.text(width / 10)
+        this.subtitle = this.add.text(width / 10);
 
         this.pressStart = this.add.text(0, 0, 'TAP TO START', {
             fontSize: '16px',
@@ -36,9 +36,9 @@ class TitleScene extends Scene {
         this.input.on('pointerdown', (pointer) => {
             this.start = true;
         });
-        this.seal = new Seal({
+        this.jacob = new Jacob({
             scene: this,
-            key: 'seal',
+            key: 'jacob',
             x: width / 2,
             y: height,
         });
