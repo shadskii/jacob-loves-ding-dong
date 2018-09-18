@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
 
 /**
- * A hungry yet lovable loaf 
+ * A hungry yet lovable loaf
  */
 export default class Seal extends Phaser.GameObjects.Sprite {
     constructor(config) {
@@ -10,8 +10,7 @@ export default class Seal extends Phaser.GameObjects.Sprite {
         config.scene.add.existing(this);
         this.alive = true;
         this.body.setCollideWorldBounds(true);
-        this.setScale(.15, .15);
-
+        this.setScale(0.5, 0.5);
     }
 
     update(x) {

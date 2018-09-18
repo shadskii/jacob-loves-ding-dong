@@ -1,8 +1,8 @@
 {
-    "name": "hungry-seals",
-    "homepage": "https://shadskii.github.io/hungry-seals",
+    "name": "jacob-loves-ding-dong",
+    "homepage": "https://shadskii.github.io/jacob-loves-ding-dong",
     "version": "2.0.0",
-    "description": "Help this lovable loaf stay well fed",
+    "description": "Classic Jacob",
     "author": "Jake Hassel <jake.k.hassel@gmail.com>",
     "main": "index.js",
     "scripts": {

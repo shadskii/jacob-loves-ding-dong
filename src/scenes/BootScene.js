@@ -1,11 +1,11 @@
-import { Scene } from 'phaser';
+import {Scene} from 'phaser';
 
 /**
  * This scene's primary responsibility is to load assets for the rest of the game.
  */
 class BootScene extends Scene {
     constructor() {
-        super({ key: 'BootScene' });
+        super({key: 'BootScene'});
     }
 
     preload() {
@@ -14,7 +14,7 @@ class BootScene extends Scene {
         this.load.image('fish', 'images/dick.png');
         this.load.image('seal', 'images/jacob.png');
         this.load.image('play-again', 'images/play_again.png');
-        this.load.image('awk-seal', 'images/jacob.jpg');
+        this.load.image('awk-seal', 'images/jacob.png');
     }
 
     create() {

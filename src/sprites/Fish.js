@@ -1,4 +1,4 @@
-import { GameObjects } from 'phaser';
+import {GameObjects} from 'phaser';
 
 /**
  * Debatably delicious but definitely edible.
@@ -11,10 +11,10 @@ export default class extends GameObjects.Sprite {
         this.seal = this.scene.seal;
         this.scene.physics.add.collider(this, this.seal, this.getEaten, this.getEaten, this);
         this.body.velocity.y = 50;
-
+        this.angle = -90;
         this.body.acceleration.y = 9.8;
         this.body.setAllowGravity(true);
-        this.setScale(0.25, 0.25);
+        this.setScale(0.15, 0.15);
         this.eaten = false;
     }
 

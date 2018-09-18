@@ -1,4 +1,4 @@
-import { Scene } from 'phaser';
+import {Scene} from 'phaser';
 import Seal from '../sprites/Seal';
 import Fish from '../sprites/Fish';
 
@@ -10,7 +10,7 @@ const MISS = 'X';
  */
 class GameScene extends Scene {
     constructor() {
-        super({ key: 'GameScene' });
+        super({key: 'GameScene'});
     }
 
     create() {
@@ -40,7 +40,6 @@ class GameScene extends Scene {
             y: this.height,
         });
 
-
         this.fishies = this.add.group();
 
         this.time.addEvent({
@@ -51,23 +50,31 @@ class GameScene extends Scene {
         });
         this.time.addEvent({
             delay: 200,
-            callback: () => this.addFishBetween(20, 100),
+            callback: () => this.addFishBetween(20, 150),
             callbackScope: this,
             loop: true,
         });
         this.time.addEvent({
-            delay: 100,
-            callback: () => this.addFishBetween(100, 200),
+            delay: 160,
+            callback: () => this.addFishBetween(151, 250),
             callbackScope: this,
             loop: true,
         });
 
-        this.input.on('pointerdown', (pointer) => {
-            this.x = pointer.x;
-        }, this);
-        this.input.on('pointermove', (pointer) => {
-            this.x = pointer.x;
-        }, this);
+        this.input.on(
+            'pointerdown',
+            (pointer) => {
+                this.x = pointer.x;
+            },
+            this
+        );
+        this.input.on(
+            'pointermove',
+            (pointer) => {
+                this.x = pointer.x;
+            },
+            this
+        );
     }
 
     update() {
@@ -76,7 +83,7 @@ class GameScene extends Scene {
             element.update();
         });
         if (this.numMissed > MISS_LIMIT) {
-            this.scene.start('GameOverScene', { score: this.score });
+            this.scene.start('GameOverScene', {score: this.score});
         }
     }
 
