@@ -10,7 +10,7 @@ export default class Jacob extends Phaser.GameObjects.Sprite {
         config.scene.add.existing(this);
         this.alive = true;
         this.body.setCollideWorldBounds(true);
-        this.setScale(0.5, 0.5);
+        this.setScale(0.4, 0.4);
     }
 
     update(x) {
