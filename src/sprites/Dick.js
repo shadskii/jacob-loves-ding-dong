@@ -10,7 +10,7 @@ export default class extends GameObjects.Sprite {
         config.scene.add.existing(this);
         this.jacob = this.scene.jacob;
         this.scene.physics.add.collider(this, this.jacob, this.getEaten, this.getEaten, this);
-        this.body.velocity.y = 50;
+        this.body.velocity.y = 60;
         this.angle = -90;
         this.body.acceleration.y = 9.8;
         this.body.setAllowGravity(true);
