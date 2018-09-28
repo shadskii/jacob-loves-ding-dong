@@ -14,7 +14,7 @@ export default class extends GameObjects.Sprite {
         this.angle = -90;
         this.body.acceleration.y = 9.8;
         this.body.setAllowGravity(true);
-        this.setScale(0.12, 0.15);
+        this.setScale(0.12, 0.16);
         this.eaten = false;
     }
 
