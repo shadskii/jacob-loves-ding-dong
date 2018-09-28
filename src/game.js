@@ -12,30 +12,27 @@ let config = {
     physics: {
         default: 'arcade',
         arcade: {
-            gravity: { y: 800 },
-            debug: false
-        }
+            gravity: {y: 800},
+            debug: false,
+        },
     },
-    scene: [
-        BootScene,
-        TitleScene,
-        GameScene,
-        GameOverScene
-    ]
+    scene: [BootScene, TitleScene, GameScene, GameOverScene],
 };
 
 export const game = new Phaser.Game(config);
 export const calculateSize = () => {
-    var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
-    var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+    let height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     width = width > 1500 ? 1500 : width;
     return {
         width: width,
-        height: height
+        height: height,
     };
 };
 window.onresize = () => {
-    const { width, height } = calculateSize();
+    const {width, height} = calculateSize();
     console.log(width + ' ' + height);
     game.resize(width, height);
+    document.getElementById('content').style.height = height;
+    document.getElementById('content').style.width = width;
 };
